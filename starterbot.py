@@ -11,13 +11,18 @@ import json
 
 
 
-SLACK_BOT_TOKEN = "xoxb-842724099156-894176688580-O5Vf24NdAfzCameecwpvHWsF"
+SLACK_BOT_TOKEN = "xoxb-909535567570-910859498035-2z86DdZnKv9D18Pb8rP2pNmy"
 DARK_API_KEY = "2e23fdad6dbf4d46df180135e48210c5"
 BOT_ID = "USA56L8H2"
 app = Flask(__name__)
 
+# @RTMClient.run_on(event='message')
+# def say_hello(**payload):
+
+
 @RTMClient.run_on(event='message')
-def say_hello(**payload):
+@app.route('/')
+def hello_world(**payload):
     data = payload['data']
     web_client = payload['web_client']
     rtm_client = payload['rtm_client']
@@ -41,10 +46,6 @@ def say_hello(**payload):
             text=f"Hi <@{user}> today is rainy",
             thread_ts=thread_ts
         )
-
-
-@app.route('/')
-def hello_world():
     return 'Hello World!'
 
 @app.route('/weather')
