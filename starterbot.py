@@ -3,8 +3,8 @@ from slack import RTMClient
 import time
 from datetime import date,timedelta
 import requests
-# SLACK_BOT_TOKEN = "xoxb-45215842257-914671033057-OE22GNVZvKAyYRtkmcp8fewG"
-SLACK_BOT_TOKEN = "xoxb-909535567570-910859498035-HfiIg4FUGSNoWlEaPrG2QTKs"
+
+SLACK_BOT_TOKEN = ""
 EXCHANGE_RATE_TOKEN = "SpmyBvns5mrR0RfOX1ibVzbkD7e5hT7A"
 DARK_API_KEY = "2e23fdad6dbf4d46df180135e48210c5"
 BOT_ID = "USA56L8H2"
