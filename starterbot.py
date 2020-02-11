@@ -7,7 +7,7 @@ import requests
 SLACK_BOT_TOKEN = ""
 EXCHANGE_RATE_TOKEN = "SpmyBvns5mrR0RfOX1ibVzbkD7e5hT7A"
 DARK_API_KEY = "2e23fdad6dbf4d46df180135e48210c5"
-BOT_ID = "USA56L8H2"
+BOT_ID = "gongbu2020"
 
 # Time
 TODAY = date.today()
@@ -27,8 +27,6 @@ class exchangeEntity:
         str += "국가: "+self.nation+"\t통화코드: "+self.unit+"\t받으실 때: "+self.ttb+"원\t보내실 때: "\
                +self.tts+"원\t매매 기준: "+self.base + "원\n"
         return str
-
-
 
 @RTMClient.run_on(event='message')
 def say_hello(**payload):
@@ -55,7 +53,7 @@ def say_hello(**payload):
         weatherInfo = weather()
         web_client.chat_postMessage(
             channel=channel_id,
-            text=f"Hi <@{user}> today weatther at "+weatherInfo['location']+ " is "+weatherInfo['summary']
+            text=f"Hi <@{user}> today 날씨 at "+weatherInfo['location']+ " is "+weatherInfo['summary']
         )
     elif 'Exchange' in data.get('text',[]):
         channel_id = data['channel']
@@ -104,7 +102,6 @@ def exchageRageDataProcessing(dataList):
         elif unit == "HKD":
             exchange = exchangeEntity(x["ttb"], x["tts"], x["deal_bas_r"], x["cur_unit"],"홍콩")
             ret["HKD"] = exchange
-
     return ret
 
 def exchageRate():
